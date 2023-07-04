@@ -11,13 +11,15 @@ public class CardDto {
     private LocalDate closingDate;
     private LocalDate dueDate;
     private BigDecimal cardLimit;
+    private String brand;
 
-    public CardDto(String lastFourDigits, LocalDate expirationDate, LocalDate closingDate, LocalDate dueDate, BigDecimal cardLimit) {
+    public CardDto(String lastFourDigits, LocalDate expirationDate, LocalDate closingDate, LocalDate dueDate, BigDecimal cardLimit, String brand) {
         this.lastFourDigits = lastFourDigits;
         this.expirationDate = expirationDate;
         this.closingDate = closingDate;
         this.dueDate = dueDate;
         this.cardLimit = cardLimit;
+        this.brand = brand;
     }
 
     public Long getId() {
@@ -66,5 +68,13 @@ public class CardDto {
 
     public void setCardLimit(BigDecimal limit) {
         this.cardLimit = limit;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 }

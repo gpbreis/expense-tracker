@@ -19,17 +19,19 @@ public class Card {
     private LocalDate closingDate;
     private LocalDate dueDate;
     private BigDecimal cardLimit;
+    private String brand;
 
     public Card() {
     }
 
-    public Card(Long id, String lastFourDigits, LocalDate expirationDate, LocalDate closingDate, LocalDate dueDate, BigDecimal cardLimit) {
+    public Card(Long id, String lastFourDigits, LocalDate expirationDate, LocalDate closingDate, LocalDate dueDate, BigDecimal cardLimit, String brand) {
         this.id = id;
         this.lastFourDigits = lastFourDigits;
         this.expirationDate = expirationDate;
         this.closingDate = closingDate;
         this.dueDate = dueDate;
         this.cardLimit = cardLimit;
+        this.brand = brand;
     }
 
     public Long getId() {
@@ -80,4 +82,11 @@ public class Card {
         this.cardLimit = limit;
     }
 
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
 }
