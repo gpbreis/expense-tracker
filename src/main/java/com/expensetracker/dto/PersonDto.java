@@ -24,6 +24,7 @@ public class PersonDto {
         this.salary = salary;
     }
 
+
     public Long getId() {
         return id;
     }

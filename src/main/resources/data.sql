@@ -1,0 +1,1 @@
+INSERT INTO person (age, birth_date, name, salary, sex) VALUES (28, '1994-08-10', 'Gustavo Pereira Breis', 3500, 'M');

@@ -13,7 +13,8 @@ public class CardDto {
     private BigDecimal cardLimit;
     private String brand;
 
-    public CardDto(String lastFourDigits, LocalDate expirationDate, LocalDate closingDate, LocalDate dueDate, BigDecimal cardLimit, String brand) {
+    public CardDto(Long id, String lastFourDigits, LocalDate expirationDate, LocalDate closingDate, LocalDate dueDate, BigDecimal cardLimit, String brand) {
+        this.id = id;
         this.lastFourDigits = lastFourDigits;
         this.expirationDate = expirationDate;
         this.closingDate = closingDate;

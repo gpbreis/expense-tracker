@@ -25,7 +25,8 @@ public class CardServiceImpl implements CardService {
     }
 
     private CardDto mapToCardDto(Card card) {
-        CardDto cardDto = new CardDto(card.getLastFourDigits(),
+        CardDto cardDto = new CardDto(card.getId(),
+                                        card.getLastFourDigits(),
                                         card.getExpirationDate(),
                                         card.getClosingDate(),
                                         card.getDueDate(),
