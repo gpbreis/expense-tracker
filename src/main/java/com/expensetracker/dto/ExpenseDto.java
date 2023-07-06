@@ -13,6 +13,29 @@ public class ExpenseDto {
     private LocalDate expenseDate;
     private LocalDateTime createdOn;
     private LocalDateTime updatedOn;
+    private Long cardId;
+
+    public ExpenseDto() {
+    }
+
+    public ExpenseDto(Long id, String title, String content, BigDecimal value, LocalDate expenseDate, LocalDateTime createdOn, LocalDateTime updatedOn, Long cardId) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.value = value;
+        this.expenseDate = expenseDate;
+        this.createdOn = createdOn;
+        this.updatedOn = updatedOn;
+        this.cardId = cardId;
+    }
+
+    public Long getCardId() {
+        return cardId;
+    }
+
+    public void setCardId(Long cardId) {
+        this.cardId = cardId;
+    }
 
     public Long getId() {
         return id;
