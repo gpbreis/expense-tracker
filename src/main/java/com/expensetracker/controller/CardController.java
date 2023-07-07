@@ -5,6 +5,7 @@ import com.expensetracker.service.CardService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -23,5 +24,11 @@ public class CardController {
         List<CardDto> cards = cardService.findAllCards();
         model.addAttribute("cards", cards);
         return "cards-list";
+    }
+
+    @GetMapping("/cards/create")
+    public String create(Model model) {
+
+        return "create-card";
     }
 }
