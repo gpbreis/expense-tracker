@@ -31,7 +31,8 @@ public class CardServiceImpl implements CardService {
                                         card.getClosingDate(),
                                         card.getDueDate(),
                                         card.getCardLimit(),
-                                        card.getBrand());
+                                        card.getBrand(),
+                                        card.getOwnerId());
         return cardDto;
     }
 }

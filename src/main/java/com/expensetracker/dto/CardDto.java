@@ -12,8 +12,9 @@ public class CardDto {
     private LocalDate dueDate;
     private BigDecimal cardLimit;
     private String brand;
+    private Long ownerId;
 
-    public CardDto(Long id, String lastFourDigits, LocalDate expirationDate, LocalDate closingDate, LocalDate dueDate, BigDecimal cardLimit, String brand) {
+    public CardDto(Long id, String lastFourDigits, LocalDate expirationDate, LocalDate closingDate, LocalDate dueDate, BigDecimal cardLimit, String brand, Long ownerId) {
         this.id = id;
         this.lastFourDigits = lastFourDigits;
         this.expirationDate = expirationDate;
@@ -21,6 +22,7 @@ public class CardDto {
         this.dueDate = dueDate;
         this.cardLimit = cardLimit;
         this.brand = brand;
+        this.ownerId = ownerId;
     }
 
     public Long getId() {
@@ -77,5 +79,13 @@ public class CardDto {
 
     public void setBrand(String brand) {
         this.brand = brand;
+    }
+
+    public Long getOwnerId() {
+        return ownerId;
+    }
+
+    public void setOwnerId(Long ownerId) {
+        this.ownerId = ownerId;
     }
 }

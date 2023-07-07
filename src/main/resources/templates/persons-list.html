@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://thymeleaf.org" xmlns:layout="http://ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+<body>
+<div layout:fragment="body">
+  <table class="table table-hover">
+    <tr>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Birth Date</th>
+      <th>Age</th>
+      <th>Salary</th>
+    </tr>
+    <tr th:each="person :${persons}">
+      <td th:text="${person.name}"></td>
+      <td th:text="${person.sex}"></td>
+      <td th:text="${person.birthDate}"></td>
+      <td th:text="${person.age}"></td>
+      <td th:text="${person.salary}"></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

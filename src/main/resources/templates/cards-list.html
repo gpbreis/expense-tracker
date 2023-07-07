@@ -3,14 +3,24 @@
 
 <body>
     <div layout:fragment="body">
-        <table>
+        <table class="table table-hover">
             <tr>
-                <th>Brand</th>
+                <th>Owner</th>
                 <th>Number</th>
+                <th>Closing</th>
+                <th>Due</th>
+                <th>Limit</th>
+                <th>Brand</th>
+                <th>Expiration</th>
             </tr>
             <tr th:each="card :${cards}">
-                <td th:text="${card.brand}"></td>
+                <td th:text="${card.ownerId}"></td>
                 <td th:text="${card.lastFourDigits}"></td>
+                <td th:text="${card.closingDate}"></td>
+                <td th:text="${card.dueDate}"></td>
+                <td th:text="${card.cardLimit}"></td>
+                <td th:text="${card.brand}"></td>
+                <td th:text="${card.expirationDate}"></td>
             </tr>
 
         </table>
