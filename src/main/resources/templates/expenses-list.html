@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://thymeleaf.org" xmlns:layout="http://ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+<body>
+<div layout:fragment="body">
+  <table class="table table-hover">
+    <tr>
+      <th>Title</th>
+      <th>Content</th>
+      <th>Value</th>
+      <th>Date</th>
+    </tr>
+    <tr th:each="expense :${expenses}">
+      <td th:text="${expense.title}"></td>
+      <td th:text="${expense.content}"></td>
+      <td th:text="${expense.value}"></td>
+      <td th:text="${expense.expenseDate}"></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>
