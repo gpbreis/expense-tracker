@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.Period;
 
 @Entity
 public class Person {
@@ -23,12 +24,12 @@ public class Person {
     public Person() {
     }
 
-    public Person(Long id, String name, LocalDate birthDate, char sex, int age, BigDecimal salary) {
+    public Person(Long id, String name, LocalDate birthDate, char sex, BigDecimal salary) {
         this.id = id;
         this.name = name;
         this.birthDate = birthDate;
         this.sex = sex;
-        this.age = age;
+        this.age = Period.between(birthDate, LocalDate.now()).getYears();
         this.salary = salary;
     }
 

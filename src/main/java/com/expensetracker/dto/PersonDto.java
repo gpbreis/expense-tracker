@@ -2,6 +2,7 @@ package com.expensetracker.dto;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.Period;
 
 public class PersonDto {
 
@@ -15,12 +16,12 @@ public class PersonDto {
     public PersonDto() {
     }
 
-    public PersonDto(Long id, String name, LocalDate birthDate, char sex, int age, BigDecimal salary) {
+    public PersonDto(Long id, String name, LocalDate birthDate, char sex, BigDecimal salary) {
         this.id = id;
         this.name = name;
         this.birthDate = birthDate;
         this.sex = sex;
-        this.age = age;
+        this.age = Period.between(birthDate, LocalDate.now()).getYears();
         this.salary = salary;
     }
 

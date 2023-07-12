@@ -25,12 +25,16 @@ public class PersonServiceImpl implements PersonService {
         return persons.stream().map(person -> mapToPersonDto(person)).collect(Collectors.toList());
     }
 
+    @Override
+    public Person createPerson(Person person) {
+        return personRopository.save(person);
+    }
+
     private PersonDto mapToPersonDto(Person person) {
         PersonDto personDto = new PersonDto(person.getId(),
                                             person.getName(),
                                             person.getBirthDate(),
                                             person.getSex(),
-                                            person.getAge(),
                                             person.getSalary());
         return personDto;
     }
