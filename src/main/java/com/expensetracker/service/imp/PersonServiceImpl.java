@@ -26,8 +26,28 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
+    public PersonDto findPersonById(Long personId) {
+        Person person = personRopository.findById(personId).get();
+        return mapToPersonDto(person);
+    }
+
+    @Override
     public Person createPerson(Person person) {
         return personRopository.save(person);
+    }
+
+    @Override
+    public void updatePerson(PersonDto personDto) {
+        Person person = mapToPerson(personDto);
+        personRopository.save(person);
+    }
+
+    private Person mapToPerson(PersonDto person) {
+        return new Person(person.getId(),
+                                    person.getName(),
+                                    person.getBirthDate(),
+                                    person.getSex(),
+                                    person.getSalary());
     }
 
     private PersonDto mapToPersonDto(Person person) {

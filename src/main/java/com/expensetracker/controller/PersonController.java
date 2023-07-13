@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -38,6 +39,20 @@ public class PersonController {
     @PostMapping("/persons/create")
     public String createPerson(@ModelAttribute("person") Person person) {
         personService.createPerson(person);
+        return "redirect:/persons";
+    }
+
+    @GetMapping("/persons/{personId}/edit")
+    public String editPersonForm(@PathVariable("personId") Long personId, Model model) {
+        PersonDto person = personService.findPersonById(personId);
+        model.addAttribute("person", person);
+        return "persons-edit";
+    }
+
+    @PostMapping("/persons/{personId}/edit")
+    public String updatePerson(@PathVariable("personId") Long personId, @ModelAttribute("person") PersonDto person) {
+        person.setId(personId);
+        personService.updatePerson(person);
         return "redirect:/persons";
     }
 }

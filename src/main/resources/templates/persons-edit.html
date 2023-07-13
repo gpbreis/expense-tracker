@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-BR" xmlns:th="http://thymeleaf.org" xmlns:layout="http://ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
-
+<head>
+  <title>
+    Person Edit
+  </title>
+</head>
 <body>
 <section layout:fragment="body">
   <div class="container">
-    <form role="form" method="post" th:action="@{/persons/create}" th:object="${person}" class="row g-3" >
+    <form role="form" method="post" th:action="@{/persons/{personId}/edit(personId=${person.id})}" th:object="${person}" class="row g-3" >
+      <input type="hidden" th:field="*{id}">
       <div class="col-md-3">
         <label for="firstName" class="form-label">Name</label>
         <input type="text" class="form-control" th:field="*{name}" id="firstName">
@@ -26,7 +31,7 @@
         <input type="number" class="form-control" th:field="*{salary}" min="0.00" step="0.01" max="999999999999.99" id="salary">
       </div>
       <div class="col-12">
-        <button type="submit" class="btn btn-primary">Create</button>
+        <button type="submit" class="btn btn-primary">Save</button>
       </div>
     </form>
   </div>

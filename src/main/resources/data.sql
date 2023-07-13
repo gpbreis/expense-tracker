@@ -1,3 +1,5 @@
+
+
 INSERT INTO person (age, birth_date, name, salary, sex) VALUES (28, '1994-08-10', 'Gustavo Pereira Breis', 500, 'M');
 INSERT INTO person (age, birth_date, name, salary, sex) VALUES (35, '1988-02-20', 'Emily Martinez', 600, 'F');
 INSERT INTO person (age, birth_date, name, salary, sex) VALUES (41, '1981-11-05', 'Daniel Johnson', 800, 'M');
