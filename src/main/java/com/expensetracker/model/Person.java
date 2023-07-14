@@ -16,7 +16,7 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private LocalDate birthDate;
+    private LocalDate birthdate;
     private char sex;
     private int age;
     private BigDecimal salary;
@@ -24,12 +24,12 @@ public class Person {
     public Person() {
     }
 
-    public Person(Long id, String name, LocalDate birthDate, char sex, BigDecimal salary) {
+    public Person(Long id, String name, LocalDate birthdate, char sex, BigDecimal salary) {
         this.id = id;
         this.name = name;
-        this.birthDate = birthDate;
+        this.birthdate = birthdate;
         this.sex = sex;
-        this.age = Period.between(birthDate, LocalDate.now()).getYears();
+        this.age = Period.between(birthdate, LocalDate.now()).getYears();
         this.salary = salary;
     }
 
@@ -49,12 +49,12 @@ public class Person {
         this.name = name;
     }
 
-    public LocalDate getBirthDate() {
-        return birthDate;
+    public LocalDate getBirthdate() {
+        return birthdate;
     }
 
-    public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
+    public void setBirthdate(LocalDate birthDate) {
+        this.birthdate = birthDate;
     }
 
     public char getSex() {

@@ -32,7 +32,8 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public Person createPerson(Person person) {
+    public Person createPerson(PersonDto personDto) {
+        Person person = mapToPerson(personDto);
         return personRopository.save(person);
     }
 
@@ -45,7 +46,7 @@ public class PersonServiceImpl implements PersonService {
     private Person mapToPerson(PersonDto person) {
         return new Person(person.getId(),
                                     person.getName(),
-                                    person.getBirthDate(),
+                                    person.getBirthdate(),
                                     person.getSex(),
                                     person.getSalary());
     }
@@ -53,7 +54,7 @@ public class PersonServiceImpl implements PersonService {
     private PersonDto mapToPersonDto(Person person) {
         PersonDto personDto = new PersonDto(person.getId(),
                                             person.getName(),
-                                            person.getBirthDate(),
+                                            person.getBirthdate(),
                                             person.getSex(),
                                             person.getSalary());
         return personDto;

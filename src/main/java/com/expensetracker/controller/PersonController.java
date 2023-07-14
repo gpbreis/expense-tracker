@@ -3,8 +3,10 @@ package com.expensetracker.controller;
 import com.expensetracker.dto.PersonDto;
 import com.expensetracker.model.Person;
 import com.expensetracker.service.PersonService;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,8 +39,12 @@ public class PersonController {
     }
 
     @PostMapping("/persons/create")
-    public String createPerson(@ModelAttribute("person") Person person) {
-        personService.createPerson(person);
+    public String createPerson(@Valid @ModelAttribute("person") PersonDto personDto, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            model.addAttribute(personDto);
+            return "create-person";
+        }
+        personService.createPerson(personDto);
         return "redirect:/persons";
     }
 
@@ -50,7 +56,10 @@ public class PersonController {
     }
 
     @PostMapping("/persons/{personId}/edit")
-    public String updatePerson(@PathVariable("personId") Long personId, @ModelAttribute("person") PersonDto person) {
+    public String updatePerson(@PathVariable("personId") Long personId, @Valid @ModelAttribute("person") PersonDto person, BindingResult result) {
+        if (result.hasErrors()) {
+            return "persons-edit";
+        }
         person.setId(personId);
         personService.updatePerson(person);
         return "redirect:/persons";

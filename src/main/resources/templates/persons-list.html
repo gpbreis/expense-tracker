@@ -7,7 +7,7 @@
       <tr>
         <th>Name</th>
         <th>Sex</th>
-        <th>Birth Date</th>
+        <th>Birthdate</th>
         <th>Age</th>
         <th>Salary</th>
         <th>Edit</th>
@@ -15,7 +15,7 @@
       <tr th:each="person :${persons}">
         <td th:text="${person.name}"></td>
         <td th:text="${person.sex}"></td>
-        <td th:text="${person.birthDate}"></td>
+        <td th:text="${#temporals.format(person.birthdate, 'dd-MM-yyyy')}"></td>
         <td th:text="${person.age}"></td>
         <td th:text="${person.salary}"></td>
         <td><a class="btn btn-primary" th:href="@{persons/{personId}/edit(personId=${person.id})}">Edit</a></td>

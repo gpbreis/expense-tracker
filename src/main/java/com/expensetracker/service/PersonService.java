@@ -11,7 +11,7 @@ public interface PersonService {
 
     PersonDto findPersonById(Long personId);
 
-    Person createPerson(Person person);
+    Person createPerson(PersonDto personDto);
 
     void updatePerson(PersonDto person);
 }
