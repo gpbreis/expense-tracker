@@ -14,4 +14,6 @@ public interface PersonService {
     Person createPerson(PersonDto personDto);
 
     void updatePerson(PersonDto person);
+
+    void delete(Long personId);
 }

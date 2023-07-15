@@ -43,6 +43,11 @@ public class PersonServiceImpl implements PersonService {
         personRopository.save(person);
     }
 
+    @Override
+    public void delete(Long personId) {
+        personRopository.deleteById(personId);
+    }
+
     private Person mapToPerson(PersonDto person) {
         return new Person(person.getId(),
                                     person.getName(),

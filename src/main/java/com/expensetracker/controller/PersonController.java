@@ -64,4 +64,10 @@ public class PersonController {
         personService.updatePerson(person);
         return "redirect:/persons";
     }
+
+    @GetMapping("/persons/{personId}/delete")
+    public String deletePerson(@PathVariable("personId") Long personId) {
+        personService.delete(personId);
+        return "redirect:/persons";
+    }
 }
