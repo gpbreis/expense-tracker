@@ -32,7 +32,7 @@ public class CardServiceImpl implements CardService {
                                         card.getDueDate(),
                                         card.getCardLimit(),
                                         card.getBrand(),
-                                        card.getOwnerId());
+                                        card.getOwner());
         return cardDto;
     }
 }
