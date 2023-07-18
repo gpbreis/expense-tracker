@@ -7,10 +7,7 @@ import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -69,5 +66,12 @@ public class PersonController {
     public String deletePerson(@PathVariable("personId") Long personId) {
         personService.delete(personId);
         return "redirect:/persons";
+    }
+
+    @GetMapping("/persons/search")
+    public String searchPersons(@RequestParam(value = "query") String query, Model model) {
+        List<PersonDto> persons = personService.searchPersons(query);
+        model.addAttribute("persons", persons);
+        return "persons-list";
     }
 }

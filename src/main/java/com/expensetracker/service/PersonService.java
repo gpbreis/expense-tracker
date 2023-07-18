@@ -16,4 +16,6 @@ public interface PersonService {
     void updatePerson(PersonDto person);
 
     void delete(Long personId);
+
+    List<PersonDto> searchPersons(String query);
 }

@@ -48,6 +48,12 @@ public class PersonServiceImpl implements PersonService {
         personRopository.deleteById(personId);
     }
 
+    @Override
+    public List<PersonDto> searchPersons(String query) {
+        List<Person> persons = personRopository.searchPersons(query);
+        return persons.stream().map(person -> mapToPersonDto(person)).collect(Collectors.toList());
+    }
+
     private Person mapToPerson(PersonDto person) {
         return new Person(person.getId(),
                                     person.getName(),

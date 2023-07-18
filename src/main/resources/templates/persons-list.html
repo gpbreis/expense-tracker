@@ -3,6 +3,9 @@
 <body>
 <section layout:fragment="body">
   <div class="container">
+    <form th:action="@{persons/search}" class="form-inline my-2 my-lg-0 mb-3">
+      <input name="query", class="form-control mr-sm-2 mb-5" type="search" placeholder="Search person">
+    </form>
     <table class="table table-hover">
       <tr>
         <th>Name</th>
