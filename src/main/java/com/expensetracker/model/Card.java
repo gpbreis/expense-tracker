@@ -1,9 +1,6 @@
 package com.expensetracker.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -20,12 +17,14 @@ public class Card {
     private LocalDate dueDate;
     private BigDecimal cardLimit;
     private String brand;
-    private Long ownerId;
+    @ManyToOne
+    @JoinColumn(name = "owner_id", nullable = false)
+    private Person ownerId;
 
     public Card() {
     }
 
-    public Card(Long id, String lastFourDigits, LocalDate expirationDate, LocalDate closingDate, LocalDate dueDate, BigDecimal cardLimit, String brand, Long ownerId) {
+    public Card(Long id, String lastFourDigits, LocalDate expirationDate, LocalDate closingDate, LocalDate dueDate, BigDecimal cardLimit, String brand, Person ownerId) {
         this.id = id;
         this.lastFourDigits = lastFourDigits;
         this.expirationDate = expirationDate;
@@ -92,11 +91,11 @@ public class Card {
         this.brand = brand;
     }
 
-    public Long getOwnerId() {
+    public Person getOwnerId() {
         return ownerId;
     }
 
-    public void setOwnerId(Long owner) {
+    public void setOwnerId(Person owner) {
         this.ownerId = owner;
     }
 }

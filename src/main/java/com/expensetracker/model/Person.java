@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity(name = "person")
 @Table(name = "person")
@@ -18,6 +20,8 @@ public class Person {
     private char sex;
     private int age;
     private BigDecimal salary;
+    @OneToMany(mappedBy = "ownerId")
+    private Set<Card> cards = new HashSet<>();
 
     public Person() {
     }
