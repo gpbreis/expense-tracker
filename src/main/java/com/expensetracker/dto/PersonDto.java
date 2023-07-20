@@ -5,6 +5,7 @@ import jakarta.validation.constraints.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.Set;
 
 public class PersonDto {
 
@@ -18,6 +19,8 @@ public class PersonDto {
     @PositiveOrZero(message = "{message.personSalary.min}")
     @Max(value = Long.MAX_VALUE, message = "{message.personSalary.max}")
     private BigDecimal salary;
+
+    private Set<CardDto> cards;
 
     public PersonDto() {
     }
@@ -78,5 +81,13 @@ public class PersonDto {
 
     public void setSalary(BigDecimal salary) {
         this.salary = salary;
+    }
+
+    public Set<CardDto> getCards() {
+        return cards;
+    }
+
+    public void setCards(Set<CardDto> cards) {
+        this.cards = cards;
     }
 }

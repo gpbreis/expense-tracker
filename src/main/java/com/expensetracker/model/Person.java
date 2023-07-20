@@ -82,4 +82,12 @@ public class Person {
     public void setSalary(BigDecimal salary) {
         this.salary = salary;
     }
+
+    public Set<Card> getCards() {
+        return cards;
+    }
+
+    public void setCards(Set<Card> cards) {
+        this.cards = cards;
+    }
 }

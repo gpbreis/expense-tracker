@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://thymeleaf.org" xmlns:layout="http://ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+
+<body>
+<section layout:fragment="body">
+    <div class="container">
+        Name: <p th:text="${person.name}"></p>
+        Birthdate: <p th:text="${#temporals.format(person.birthdate, 'dd-MM-yyyy')}"></p>
+        Age: <p th:text="${person.age}"></p>
+        Sex: <p th:text="${person.sex}"></p>
+        Salary: <p th:text="${person.salary}"></p>
+    </div>
+    <div class="container">
+        <table class="table table-hover">
+            <tr>
+                <th>Name</th>
+                <th>Sex</th>
+                <th>Birthdate</th>
+                <th>Age</th>
+                <th>Salary</th>
+                <th>Edit</th>
+            </tr>
+            <tr th:each="person :${persons}">
+                <td th:text="${person.cards.lastFourDigits}"></td>
+            </tr>
+        </table>
+    </div>
+</section>
+</body>
+</html>

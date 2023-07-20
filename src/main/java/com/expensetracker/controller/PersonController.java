@@ -68,6 +68,13 @@ public class PersonController {
         return "redirect:/persons";
     }
 
+    @GetMapping("/persons/{personId}")
+    public String personDetail(@PathVariable("personId") Long personId, Model model) {
+        PersonDto personDto = personService.findPersonById(personId);
+        model.addAttribute("person", personDto);
+        return "persons-detail";
+    }
+
     @GetMapping("/persons/search")
     public String searchPersons(@RequestParam(value = "query") String query, Model model) {
         List<PersonDto> persons = personService.searchPersons(query);
