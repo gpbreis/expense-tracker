@@ -16,3 +16,6 @@ INSERT INTO card (owner_id, last_four_digits, closing_date, due_date, card_limit
 INSERT INTO card (owner_id, last_four_digits, closing_date, due_date, card_limit, brand, expiration_date) VALUES (1, '4124', '2023-08-31', '2023-09-08', 3500,'Elo', '2028-04-30');
 INSERT INTO card (owner_id, last_four_digits, closing_date, due_date, card_limit, brand, expiration_date) VALUES (2, '6372', '2023-09-04', '2023-09-11', 1800,'Mastercard', '2024-10-31');
 INSERT INTO card (owner_id, last_four_digits, closing_date, due_date, card_limit, brand, expiration_date) VALUES (2, '9481', '2023-09-08', '2023-09-15', 15000,'Visa', '2025-05-31');
+
+INSERT INTO roles (name) VALUES ('ADMIN');
+INSERT INTO roles (name) VALUES ('USER');
