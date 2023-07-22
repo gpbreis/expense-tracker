@@ -22,13 +22,12 @@ public class RegistrationDto {
     private String lastName;
     private LocalDate birthdate;
     private String document;
-    @NotEmpty
     private List<Role> roles = new ArrayList<>();
 
     public RegistrationDto() {
     }
 
-    public RegistrationDto(Long id, String username, String email, String password, String firstName, String lastName, LocalDate birthdate, String document, List<Role> roles) {
+    public RegistrationDto(Long id, String username, String email, String password, String firstName, String lastName, LocalDate birthdate, String document) {
         this.id = id;
         this.username = username;
         this.email = email;
@@ -37,7 +36,6 @@ public class RegistrationDto {
         this.lastName = lastName;
         this.birthdate = birthdate;
         this.document = document;
-        this.roles = roles;
     }
 
     public Long getId() {

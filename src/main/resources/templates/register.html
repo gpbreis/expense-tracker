@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://thymeleaf.org" xmlns:layout="http://ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+
+<body>
+<section layout:fragment="body">
+    <div class="container">
+        <form role="form" method="post" th:action="@{/register/save}" th:object="${users}" class="row g-3" >
+            <div class="col-md-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" th:field="*{username}" id="username">
+                <p th:if="${#fields.hasErrors('username')}" class="text-danger" th:errors="*{username}"></p>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" th:field="*{email}" id="email">
+                <p th:if="${#fields.hasErrors('email')}" class="text-danger" th:errors="*{email}"></p>
+            </div>
+            <div class="col-md-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" th:field="*{password}" id="password" required>
+                <p th:if="${#fields.hasErrors('password')}" class="text-danger" th:errors="*{password}"></p>
+            </div>
+            <div class="col-md-3">
+                <label for="firstName" class="form-label">First Name</label>
+                <input type="text" class="form-control" th:field="*{firstName}" id="firstName" required>
+                <p th:if="${#fields.hasErrors('firstName')}" class="text-danger" th:errors="*{firstName}"></p>
+            </div>
+            <div class="col-md-3">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="text" class="form-control" th:field="*{lastName}" id="lastName" required>
+                <p th:if="${#fields.hasErrors('lastName')}" class="text-danger" th:errors="*{lastName}"></p>
+            </div>
+            <div class="col-md-3">
+                <label for="birthdate" class="form-label">Birthdate</label>
+                <input type="date" class="form-control" th:field="*{birthdate}" id="birthdate" required>
+                <p th:if="${#fields.hasErrors('birthdate')}" class="text-danger" th:errors="*{birthdate}"></p>
+            </div>
+            <div class="col-md-3">
+                <label for="document" class="form-label">Document</label>
+                <input type="text" class="form-control" th:field="*{document}" id="document" required>
+                <p th:if="${#fields.hasErrors('document')}" class="text-danger" th:errors="*{document}"></p>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Register</button>
+            </div>
+        </form>
+    </div>
+</section>
+</body>
+</html>
