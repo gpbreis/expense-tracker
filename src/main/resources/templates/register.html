@@ -4,6 +4,9 @@
 <body>
 <section layout:fragment="body">
     <div class="container">
+        <div th:if="${param.fail}" class="alert alert-success">
+            Username or email already exists!
+        </div>
         <form role="form" method="post" th:action="@{/register/save}" th:object="${users}" class="row g-3" >
             <div class="col-md-3">
                 <label for="username" class="form-label">Username</label>
