@@ -18,6 +18,8 @@ public class SecurityConfig {
                         auth
                                 .requestMatchers("/login", "/register", "/register/save")
                                 .permitAll()
+                                .requestMatchers("/persons", "/persons/create", "/persons/{personId}/edit", "/persons/search")
+                                .hasAnyRole("ADMIN", "USER")
                                 .and()
                                 .formLogin(form -> form
                                         .loginPage("/login")
