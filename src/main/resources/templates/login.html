@@ -10,19 +10,17 @@
     <div th:if="${param.logout}" class="alert alert-success">
       You have been logged out.
     </div>
-    <form role="form" method="post" th:action="@{/login}" class="row g-12" >
-      <div class="col-md-3">
+    <form method="post" th:action="@{/login}" class="row g-12" >
+      <div class="form-group">
         <label for="username" class="form-label">Username</label>
         <input type="text" class="form-control" name="username" id="username">
       </div>
-      <div class="col-md-3">
+      <div class="form-group">
         <label for="password" class="form-label">Password</label>
         <input type="password" class="form-control" name="password" id="password">
       </div>
-      <div class="col-12">
-        <button th:href="@{/register}" class="btn btn-primary">Create account</button>
-        <button type="submit" value="Log in" class="btn btn-primary">Login</button>
-      </div>
+      <button th:href="@{/register}" type="submit" class="btn btn-black">Create account</button>
+      <button type="submit" value="Log in" class="btn btn-secondary">Login</button>
     </form>
   </div>
 </section>
