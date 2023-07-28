@@ -32,7 +32,7 @@ public class SecurityConfig {
                                 .requestMatchers("/login", "/register", "/register/save")
                                 .permitAll()
                                 .requestMatchers("/persons", "/persons/create", "/persons/{personId}/edit", "/persons/search")
-                                .hasAnyRole("ADMIN", "USER")
+                                .permitAll()
                                 .and()
                                 .formLogin(form -> form
                                         .loginPage("/login")
