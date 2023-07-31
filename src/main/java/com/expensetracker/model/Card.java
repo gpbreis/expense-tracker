@@ -20,6 +20,8 @@ public class Card {
     @ManyToOne
     @JoinColumn(name = "owner_id", nullable = false)
     private Person ownerId;
+    @OneToMany(mappedBy = "card_id")
+    private Expense expenses;
 
     public Card() {
     }

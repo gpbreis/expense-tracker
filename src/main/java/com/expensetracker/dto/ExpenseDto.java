@@ -1,5 +1,7 @@
 package com.expensetracker.dto;
 
+import com.expensetracker.model.Card;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -13,12 +15,12 @@ public class ExpenseDto {
     private LocalDate expenseDate;
     private LocalDateTime createdOn;
     private LocalDateTime updatedOn;
-    private Long cardId;
+    private Card cardId;
 
     public ExpenseDto() {
     }
 
-    public ExpenseDto(Long id, String title, String content, BigDecimal value, LocalDate expenseDate, LocalDateTime createdOn, LocalDateTime updatedOn, Long cardId) {
+    public ExpenseDto(Long id, String title, String content, BigDecimal value, LocalDate expenseDate, LocalDateTime createdOn, LocalDateTime updatedOn, Card cardId) {
         this.id = id;
         this.title = title;
         this.content = content;
@@ -29,11 +31,11 @@ public class ExpenseDto {
         this.cardId = cardId;
     }
 
-    public Long getCardId() {
+    public Card getCardId() {
         return cardId;
     }
 
-    public void setCardId(Long cardId) {
+    public void setCardId(Card cardId) {
         this.cardId = cardId;
     }
 

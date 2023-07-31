@@ -1,9 +1,6 @@
 package com.expensetracker.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -25,12 +22,14 @@ public class Expense {
     private LocalDateTime createdOn;
     @UpdateTimestamp
     private LocalDateTime updatedOn;
-    private Long cardId;
+    @ManyToOne
+    @JoinColumn(name = "card_id")
+    private Card cardId;
 
     public Expense() {
     }
 
-    public Expense(Long id, String title, String content, BigDecimal value, LocalDate expenseDate, LocalDateTime createdOn, LocalDateTime updatedOn, Long cardId) {
+    public Expense(Long id, String title, String content, BigDecimal value, LocalDate expenseDate, LocalDateTime createdOn, LocalDateTime updatedOn, Card cardId) {
         this.id = id;
         this.title = title;
         this.content = content;
@@ -97,11 +96,11 @@ public class Expense {
         this.updatedOn = updatedOn;
     }
 
-    public Long getCardId() {
+    public Card getCardId() {
         return cardId;
     }
 
-    public void setCardId(Long cardId) {
+    public void setCardId(Card cardId) {
         this.cardId = cardId;
     }
 }
