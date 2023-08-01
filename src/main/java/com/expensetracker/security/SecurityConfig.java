@@ -31,7 +31,8 @@ public class SecurityConfig {
                         auth
                                 .requestMatchers("/index", "/login", "/register", "/register/save")
                                 .permitAll()
-                                .requestMatchers("/persons", "/persons/create", "/persons/{personId}/edit", "/persons/search")
+                                .requestMatchers("/persons", "/persons/create", "/persons/{personId}/edit", "/persons/search"
+                                , "/cards", "/cards/create", "/expenses", "/expenses/create")
                                 .hasAnyAuthority("ADMIN", "USER")
                                 .and()
                                 .formLogin(form -> form

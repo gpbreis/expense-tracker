@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -22,7 +23,7 @@ public class Card {
     @JoinColumn(name = "owner_id", nullable = false)
     private Person ownerId;
     @OneToMany(mappedBy = "cardId")
-    private Set<Expense> expenses;
+    private Set<Expense> expenses = new HashSet<>();
 
     public Card() {
     }
@@ -100,5 +101,13 @@ public class Card {
 
     public void setOwnerId(Person owner) {
         this.ownerId = owner;
+    }
+
+    public Set<Expense> getExpenses() {
+        return expenses;
+    }
+
+    public void setExpenses(Set<Expense> expenses) {
+        this.expenses = expenses;
     }
 }

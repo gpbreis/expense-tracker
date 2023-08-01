@@ -22,6 +22,8 @@ public class Person {
     private BigDecimal salary;
     @OneToMany(mappedBy = "ownerId")
     private Set<Card> cards = new HashSet<>();
+    @OneToMany(mappedBy = "personId")
+    private Set<Expense> expenses = new HashSet<>();
 
     public Person() {
     }
@@ -89,5 +91,13 @@ public class Person {
 
     public void setCards(Set<Card> cards) {
         this.cards = cards;
+    }
+
+    public Set<Expense> getExpenses() {
+        return expenses;
+    }
+
+    public void setExpenses(Set<Expense> expenses) {
+        this.expenses = expenses;
     }
 }

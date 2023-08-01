@@ -19,8 +19,8 @@ public class PersonDto {
     @PositiveOrZero(message = "{message.personSalary.min}")
     @Max(value = Long.MAX_VALUE, message = "{message.personSalary.max}")
     private BigDecimal salary;
-
     private Set<CardDto> cards;
+    private Set<ExpenseDto> expenses;
 
     public PersonDto() {
     }
@@ -89,5 +89,13 @@ public class PersonDto {
 
     public void setCards(Set<CardDto> cards) {
         this.cards = cards;
+    }
+
+    public Set<ExpenseDto> getExpenses() {
+        return expenses;
+    }
+
+    public void setExpenses(Set<ExpenseDto> expenses) {
+        this.expenses = expenses;
     }
 }

@@ -25,6 +25,9 @@ public class Expense {
     @ManyToOne
     @JoinColumn(name = "card_id")
     private Card cardId;
+    @ManyToOne
+    @JoinColumn(name = "person_id")
+    private Person personId;
 
     public Expense() {
     }
@@ -102,5 +105,13 @@ public class Expense {
 
     public void setCardId(Card cardId) {
         this.cardId = cardId;
+    }
+
+    public Person getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(Person personId) {
+        this.personId = personId;
     }
 }
