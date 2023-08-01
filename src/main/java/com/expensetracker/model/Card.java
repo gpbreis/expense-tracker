@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 public class Card {
@@ -20,8 +21,8 @@ public class Card {
     @ManyToOne
     @JoinColumn(name = "owner_id", nullable = false)
     private Person ownerId;
-    @OneToMany(mappedBy = "card_id")
-    private Expense expenses;
+    @OneToMany(mappedBy = "cardId")
+    private Set<Expense> expenses;
 
     public Card() {
     }
