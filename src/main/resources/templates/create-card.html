@@ -2,40 +2,45 @@
 <html lang="pt-BR" xmlns:th="http://thymeleaf.org" xmlns:layout="http://ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
 
 <body>
-<div>
-  <form class="row g-3" layout:fragment="body">
-    <div class="col-md-3">
-      <label for="lastFourDigits" class="form-label">Last Four Digits</label>
-      <input type="text" class="form-control" id="lastFourDigits">
-    </div>
-    <div class="col-md-3">
-      <label for="expirationDate" class="form-label">Expiration Date</label>
-      <input type="date" class="form-control" id="expirationDate">
-    </div>
-    <div class="col-md-3">
-      <label for="closingDate" class="form-label">Closing Date</label>
-      <input type="date" class="form-control" id="closingDate">
-    </div>
-    <div class="col-md-3">
-      <label for="dueDate" class="form-label">Due Date</label>
-      <input type="date" class="form-control" id="dueDate">
-    </div>
-    <div class="col-md-3">
-      <label for="cardLimit" class="form-label">Limit</label>
-      <input type="text" class="form-control" id="cardLimit">
-    </div>
-    <div class="col-md-3">
-      <label for="brandId" class="form-label">Brand</label>
-      <input type="text" class="form-control" id="brandId">
-    </div>
-    <div class="col-md-6">
-      <label for="ownerId" class="form-label">Owner</label>
-      <input type="text" class="form-control" id="ownerId">
-    </div>
-    <div class="col-12">
-      <button type="submit" class="btn btn-primary">Create</button>
-    </div>
-  </form>
-</div>
+<section layout:fragment="body">
+  <div class="container">
+    <form role="form" method="post" th:action="@{/cards/create}" th:object="${card}" class="row g-3" >
+      <div class="col-md-3">
+        <label for="lastFourDigits" class="form-label">Last Four Digits</label>
+        <input type="text" class="form-control" th:field="*{lastFourDigits}" id="lastFourDigits">
+      </div>
+      <div class="col-md-3">
+        <label for="expirationDate" class="form-label">Expiration Date</label>
+        <input type="date" class="form-control" th:field="*{expirationDate}" id="expirationDate">
+      </div>
+      <div class="col-md-3">
+        <label for="closingDate" class="form-label">Closing Date</label>
+        <input type="date" class="form-control" th:field="*{closingDate}" id="closingDate">
+      </div>
+      <div class="col-md-3">
+        <label for="dueDate" class="form-label">Due Date</label>
+        <input type="date" class="form-control" th:field="*{dueDate}" id="dueDate">
+      </div>
+      <div class="col-md-3">
+        <label for="cardLimit" class="form-label">Limit</label>
+        <input type="text" class="form-control" th:field="*{cardLimit}" id="cardLimit">
+      </div>
+      <div class="col-md-3">
+        <label for="brand" class="form-label">Brand</label>
+        <input type="text" class="form-control" th:field="*{brand}" id="brand">
+      </div>
+<!--      <div class="col-md-6" th:object="${persons}">-->
+<!--        <label for="ownerId" class="form-label">Owner</label>-->
+<!--        <select class="form-control" th:field="*{name}" id="ownerId">-->
+<!--          <option value=th:text="${persons.getId}" th:text="${persons.getName}"></option>-->
+<!--        </select>-->
+<!--      </div>-->
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary">Create</button>
+      </div>
+    </form>
+  </div>
+</section>
+
 </body>
 </html>
