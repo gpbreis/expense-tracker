@@ -37,7 +37,9 @@
       </div>
       <div class="col-md-6">
         <label for="ownerId" class="form-label">Owner</label>
-        <input type="number" class="form-control" th:field="*{ownerId}" id="ownerId">
+        <select class="form-control" th:field="*{ownerId}">
+          <option th:each="person :${persons}" th:text="${person.name}" th:value="${person.id}" id="ownerId"></option>
+        </select>
         <p th:if="${#fields.hasErrors('ownerId')}" class="text-danger" th:errors="*{ownerId}"></p>
       </div>
       <div class="col-12">
