@@ -24,6 +24,23 @@ public class CardServiceImpl implements CardService {
         return cards.stream().map((card) -> mapToCardDto(card)).collect(Collectors.toList());
     }
 
+    @Override
+    public Card createCard(CardDto cardDto) {
+        Card card = mapToCard(cardDto);
+        return cardRepository.save(card);
+    }
+
+    private Card mapToCard(CardDto cardDto) {
+        return new Card(cardDto.getId(),
+                cardDto.getLastFourDigits(),
+                cardDto.getExpirationDate(),
+                cardDto.getClosingDate(),
+                cardDto.getDueDate(),
+                cardDto.getCardLimit(),
+                cardDto.getBrand(),
+                cardDto.getOwnerId());
+    }
+
     private CardDto mapToCardDto(Card card) {
         CardDto cardDto = new CardDto(card.getId(),
                                         card.getLastFourDigits(),

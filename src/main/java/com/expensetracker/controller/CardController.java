@@ -37,20 +37,17 @@ public class CardController {
     @GetMapping("/cards/create")
     public String createCard(Model model) {
         Card card = new Card();
-        List<PersonDto> persons = personService.findAllPersons();
-        model.addAttribute("persons", persons);
         model.addAttribute("card", card);
         return "create-card";
     }
 
     @PostMapping("/cards/create")
     public String createCard(@Valid @ModelAttribute("card") CardDto cardDto, BindingResult result, Model model) {
-        List<PersonDto> persons = personService.findAllPersons();
-        model.addAttribute("persons", persons);
         if (result.hasErrors()) {
             model.addAttribute(cardDto);
             return "create-card";
         }
-        return "create-card";
+        cardService.createCard(cardDto);
+        return "redirect:/cards";
     }
 }

@@ -8,33 +8,38 @@
       <div class="col-md-3">
         <label for="lastFourDigits" class="form-label">Last Four Digits</label>
         <input type="text" class="form-control" th:field="*{lastFourDigits}" id="lastFourDigits">
+        <p th:if="${#fields.hasErrors('lastFourDigits')}" class="text-danger" th:errors="*{lastFourDigits}"></p>
       </div>
       <div class="col-md-3">
         <label for="expirationDate" class="form-label">Expiration Date</label>
         <input type="date" class="form-control" th:field="*{expirationDate}" id="expirationDate">
+        <p th:if="${#fields.hasErrors('expirationDate')}" class="text-danger" th:errors="*{expirationDate}"></p>
       </div>
       <div class="col-md-3">
         <label for="closingDate" class="form-label">Closing Date</label>
         <input type="date" class="form-control" th:field="*{closingDate}" id="closingDate">
+        <p th:if="${#fields.hasErrors('closingDate')}" class="text-danger" th:errors="*{closingDate}"></p>
       </div>
       <div class="col-md-3">
         <label for="dueDate" class="form-label">Due Date</label>
         <input type="date" class="form-control" th:field="*{dueDate}" id="dueDate">
+        <p th:if="${#fields.hasErrors('dueDate')}" class="text-danger" th:errors="*{dueDate}"></p>
       </div>
       <div class="col-md-3">
         <label for="cardLimit" class="form-label">Limit</label>
-        <input type="text" class="form-control" th:field="*{cardLimit}" id="cardLimit">
+        <input type="number" class="form-control" th:field="*{cardLimit}" id="cardLimit">
+        <p th:if="${#fields.hasErrors('cardLimit')}" class="text-danger" th:errors="*{cardLimit}"></p>
       </div>
       <div class="col-md-3">
         <label for="brand" class="form-label">Brand</label>
         <input type="text" class="form-control" th:field="*{brand}" id="brand">
+        <p th:if="${#fields.hasErrors('brand')}" class="text-danger" th:errors="*{brand}"></p>
       </div>
-<!--      <div class="col-md-6" th:object="${persons}">-->
-<!--        <label for="ownerId" class="form-label">Owner</label>-->
-<!--        <select class="form-control" th:field="*{name}" id="ownerId">-->
-<!--          <option value=th:text="${persons.getId}" th:text="${persons.getName}"></option>-->
-<!--        </select>-->
-<!--      </div>-->
+      <div class="col-md-6">
+        <label for="ownerId" class="form-label">Owner</label>
+        <input type="number" class="form-control" th:field="*{ownerId}" id="ownerId">
+        <p th:if="${#fields.hasErrors('ownerId')}" class="text-danger" th:errors="*{ownerId}"></p>
+      </div>
       <div class="col-12">
         <button type="submit" class="btn btn-primary">Create</button>
       </div>
