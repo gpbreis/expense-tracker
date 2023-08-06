@@ -1,6 +1,7 @@
 package com.expensetracker.controller;
 
 import com.expensetracker.dto.ExpenseDto;
+import com.expensetracker.model.Expense;
 import com.expensetracker.service.ExpenseService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +24,13 @@ public class ExpenseController {
         List<ExpenseDto> expenses = expenseService.findAllExpenses();
         model.addAttribute("expenses", expenses);
         return "expenses-list";
+    }
+
+    @GetMapping("/expenses/create")
+    public String createExpense(Model model) {
+        Expense person = new Expense();
+        model.addAttribute("person", person);
+        return "create-expense";
     }
 
 }
