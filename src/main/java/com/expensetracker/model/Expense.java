@@ -22,6 +22,7 @@ public class Expense {
     private LocalDateTime createdOn;
     @UpdateTimestamp
     private LocalDateTime updatedOn;
+    private ExpenseTypeEnum type;
     @ManyToOne
     @JoinColumn(name = "card_id")
     private Card cardId;
@@ -113,5 +114,13 @@ public class Expense {
 
     public void setPersonId(Person personId) {
         this.personId = personId;
+    }
+
+    public ExpenseTypeEnum getType() {
+        return type;
+    }
+
+    public void setType(ExpenseTypeEnum type) {
+        this.type = type;
     }
 }
