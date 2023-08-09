@@ -19,3 +19,7 @@ INSERT INTO card (owner_id, last_four_digits, closing_date, due_date, card_limit
 
 INSERT INTO roles (name) VALUES ('ADMIN');
 INSERT INTO roles (name) VALUES ('USER');
+
+INSERT INTO users (id, username, email, password, first_name, last_name, birthdate, document, created_on, updated_on, login_attempts, is_blocked) VALUES (1, 'admin', 'admin@admin.com', '$2a$10$PMkqihXSW5Fwre/srjNu3.C1.r9u7.vFXDClAHGWbh70x.a/rZ/1C', 'Admin', 'Administrator', '2000-01-01', '00000000000', '2023-08-08 00:00:00', '2023-08-08 00:00:00', 0, false);
+
+INSERT INTO users_roles (user_id, role_id) VALUES (1, 1);

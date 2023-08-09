@@ -2,7 +2,8 @@ package com.expensetracker.model;
 
 public enum ExpenseTypeEnum {
     CARD("Card"),
-    FIXED("Fixed");
+    FIXED("Fixed"),
+    OTHER("Other");
 
     private String type;
 

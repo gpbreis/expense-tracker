@@ -23,6 +23,8 @@ public class Expense {
     @UpdateTimestamp
     private LocalDateTime updatedOn;
     private ExpenseTypeEnum type;
+    private int installment;
+    private BigDecimal installmentValue;
     @ManyToOne
     @JoinColumn(name = "card_id")
     private Card cardId;

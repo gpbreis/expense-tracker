@@ -27,20 +27,24 @@
             </div>
             <div class="col-md-3">
                 <label for="type" class="form-label">Type</label>
-                <input type="text" class="form-control" th:field="*{type}" id="type">
+                <select class="form-control" th:field="*{type}" id="type">
+                    <option value="CARD">Card</option>
+                    <option value="FIXED">Fixed</option>
+                    <option value="OTHER">Other</option>
+                </select>
                 <p th:if="${#fields.hasErrors('type')}" class="text-danger" th:errors="*{type}"></p>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <label for="personId" class="form-label">Person</label>
                 <select class="form-control" th:field="*{personId}">
                     <option th:each="person :${persons}" th:text="${person.name}" th:value="${person.id}" id="personId"></option>
                 </select>
                 <p th:if="${#fields.hasErrors('personId')}" class="text-danger" th:errors="*{personId}"></p>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <label for="cardId" class="form-label">Card</label>
-                <select class="form-control" th:field="*{cardId}">
-                    <option th:each="person :${cards}" th:text="${card.name}" th:value="${card.id}" id="cardId"></option>
+                <select class="form-control" th:field="*{cardId}" th:disable="*{type}">
+                    <option th:each="card :${cards}" th:text="${card.lastFourDigits}" th:value="${card.id}" id="cardId"></option>
                 </select>
                 <p th:if="${#fields.hasErrors('cardId')}" class="text-danger" th:errors="*{cardId}"></p>
             </div>
