@@ -13,15 +13,38 @@
     <div class="container">
         <table class="table table-hover">
             <tr>
-                <th>Name</th>
-                <th>Sex</th>
-                <th>Birthdate</th>
-                <th>Age</th>
-                <th>Salary</th>
-                <th>Edit</th>
+                <th>Number</th>
+                <th>Closing</th>
+                <th>Due</th>
+                <th>Limit</th>
+                <th>Brand</th>
+                <th>Expiration</th>
             </tr>
             <tr th:each="person :${persons}">
-                <td th:text="${person.cards.lastFourDigits}"></td>
+                <td th:text="${person.cards.getLastFourDigits}"></td>
+                <td th:text="${person.cards.getClosingDate}"></td>
+                <td th:text="${person.cards.getDueDate}"></td>
+                <td th:text="${person.cards.getLimit}"></td>
+                <td th:text="${person.cards.getBrand}"></td>
+                <td th:text="${person.cards.getExpirationDate}"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="container">
+        <table class="table table-hover">
+            <tr>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Value</th>
+                <th>Date</th>
+                <th>Type</th>
+            </tr>
+            <tr th:each="person :${persons}">
+                <td th:text="${person.expenses.getTitle}"></td>
+                <td th:text="${person.expenses.getContent}"></td>
+                <td th:text="${person.expenses.getValue}"></td>
+                <td th:text="${person.expenses.getDate}"></td>
+                <td th:text="${person.expenses.getType}"></td>
             </tr>
         </table>
     </div>
