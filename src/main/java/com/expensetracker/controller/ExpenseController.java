@@ -7,9 +7,13 @@ import com.expensetracker.model.Expense;
 import com.expensetracker.service.CardService;
 import com.expensetracker.service.ExpenseService;
 import com.expensetracker.service.PersonService;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -43,6 +47,18 @@ public class ExpenseController {
         model.addAttribute("persons", persons);
         model.addAttribute("cards", cards);
         return "create-expense";
+    }
+
+    @PostMapping("/expenses/create")
+    public String createCard(@Valid @ModelAttribute("cards") CardDto cardDto, @ModelAttribute("expense") ExpenseDto expenseDto, @ModelAttribute("person") PersonDto personDto, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            model.addAttribute("cards", cardDto);
+            model.addAttribute("persons", personDto);
+            model.addAttribute("expense", expenseDto);
+            return "create-card";
+        }
+        expenseService.createExpense(expenseDto);
+        return "redirect:/expenses";
     }
 
 }

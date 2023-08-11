@@ -1,6 +1,9 @@
 package com.expensetracker.dto;
 
 import com.expensetracker.model.Card;
+import com.expensetracker.model.Person;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.annotation.CreatedDate;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -13,14 +16,17 @@ public class ExpenseDto {
     private String content;
     private BigDecimal value;
     private LocalDate expenseDate;
+    @CreatedDate
     private LocalDateTime createdOn;
+    @UpdateTimestamp
     private LocalDateTime updatedOn;
     private Card cardId;
+    private Person personId;
 
     public ExpenseDto() {
     }
 
-    public ExpenseDto(Long id, String title, String content, BigDecimal value, LocalDate expenseDate, LocalDateTime createdOn, LocalDateTime updatedOn, Card cardId) {
+    public ExpenseDto(Long id, String title, String content, BigDecimal value, LocalDate expenseDate, LocalDateTime createdOn, LocalDateTime updatedOn, Card cardId, Person personId) {
         this.id = id;
         this.title = title;
         this.content = content;
@@ -29,6 +35,7 @@ public class ExpenseDto {
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
         this.cardId = cardId;
+        this.personId = personId;
     }
 
     public Card getCardId() {
@@ -93,5 +100,13 @@ public class ExpenseDto {
 
     public void setUpdatedOn(LocalDateTime updatedOn) {
         this.updatedOn = updatedOn;
+    }
+
+    public Person getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(Person personId) {
+        this.personId = personId;
     }
 }

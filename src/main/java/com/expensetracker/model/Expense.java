@@ -35,7 +35,7 @@ public class Expense {
     public Expense() {
     }
 
-    public Expense(Long id, String title, String content, BigDecimal value, LocalDate expenseDate, LocalDateTime createdOn, LocalDateTime updatedOn, Card cardId) {
+    public Expense(Long id, String title, String content, BigDecimal value, LocalDate expenseDate, LocalDateTime createdOn, LocalDateTime updatedOn, Card cardId, Person personId) {
         this.id = id;
         this.title = title;
         this.content = content;
@@ -44,6 +44,7 @@ public class Expense {
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
         this.cardId = cardId;
+        this.personId = personId;
     }
 
     public Long getId() {

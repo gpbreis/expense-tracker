@@ -22,6 +22,26 @@ public class ExpenseServiceImpl implements ExpenseService {
         List<Expense> expenses = expenseRopository.findAll();
         return expenses.stream().map(expense -> mapToExpenseDto(expense)).collect(Collectors.toList());
     }
+
+    @Override
+    public Expense createExpense(ExpenseDto expenseDto) {
+        Expense expense = mapToExpense(expenseDto);
+        return expenseRopository.save(expense);
+    }
+
+    private Expense mapToExpense(ExpenseDto expenseDto) {
+        return new Expense(expenseDto.getId(),
+                expenseDto.getTitle(),
+                expenseDto.getContent(),
+                expenseDto.getValue(),
+                expenseDto.getExpenseDate(),
+                expenseDto.getCreatedOn(),
+                expenseDto.getUpdatedOn(),
+                expenseDto.getCardId(),
+                expenseDto.getPersonId()
+                );
+    }
+
     private ExpenseDto mapToExpenseDto(Expense expense) {
         ExpenseDto expenseDto = new ExpenseDto(expense.getId(),
                                                 expense.getTitle(),
@@ -30,7 +50,8 @@ public class ExpenseServiceImpl implements ExpenseService {
                                                 expense.getExpenseDate(),
                                                 expense.getCreatedOn(),
                                                 expense.getUpdatedOn(),
-                                                expense.getCardId());
+                                                expense.getCardId(),
+                                                expense.getPersonId());
         return expenseDto;
     }
 }
